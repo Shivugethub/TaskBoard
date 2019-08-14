@@ -1,6 +1,6 @@
-<div class='bg-secondary'>
+<div class='bg-secondary container-fluid'>
 <div class="row">
-  <div class="col-sm-2" >
+  <div class="col-sm-6 col-md-4">
     <div class="card">
       <div class="card-body thumbnail">
         <h5 class="card-title">To-Do</h5>
@@ -12,112 +12,114 @@
     </div>
   </div>
 
-  <div class="col-sm-2">
+  <!-- <div class="col-sm-6 col-md-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">In Progress</h5>
-        <div class='card'>
-            <p class="card-text ">With supporting text below as a natural lead-in to additional content.</p>
-            <p class="btn btn-primary ">Due Date:date</p>
-
-          </div><br>
-           <div class='card'>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <p class="btn btn-primary">Due Date:date</p>
-
-           </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-2">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <div class='card'>
-            <p class="card-text ">With supporting text below as a natural lead-in to additional content.</p>
-            <p class="btn btn-primary ">Due Date:date</p>
-
-          </div><br>
-           <div class='card'>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <p class="btn btn-primary">Due Date:date</p>
-
+        <div class='card' id='toDo'>
+          <p class="card-text ">{{item.description}}</p>
+          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
           </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-3">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">Ready for QA</h5>
+        <div class='card' id='toDo'>
+          <p class="card-text ">{{item.description}}</p>
+          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
+          </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class='card' id='toDo'>
+          <p class="card-text ">{{item.description}}</p>
+          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
+          </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-2">
+  <div class="col-sm-6 col-md-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">System Testing</h5>
+        <div class='card' id='toDo'>
+          <p class="card-text ">{{item.description}}</p>
+          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
+          </div>
       </div>
     </div>
   </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">System Testing Complete</h5>
+        <div class='card' id='toDo'>
+          <p class="card-text ">{{item.description}}</p>
+          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
+          </div>
+      </div>
+    </div>
+  </div> -->
 </div>
 </div>
 
 
 
 <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title" >{{selectedDesignationOption}} Designation</h4>
+    <!-- <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title" >Task</h4>
       <button type="button" class="close bg bg-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">Close</span>
       </button>
-    </div>
+    </div> -->
     <div class="modal-body">
         <!-- <div class='col-6'> -->
-      <form  >
-        <table>
+      <form>
+        <table class='table table-borderless'>
           <tr>
-            <td><div class="form-group">
-              <label for="designation">Designation</label>
-              <div class="input-group">
-                <input id="designation" class="form-control"   placeholder="Name" name="name" required>
-                <div class="input-group-append">
-                  <!-- <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button"></button> -->
-                </div>
-              </div>
-            </div>
-
-           </td>
-           <td> <div class="form-group">
-            <label for="description">Description</label>
-            <div class="input-group">
-              <input id="description" class="form-control"  placeholder="Description" name="description" required>
-              <div class="input-group-append">
-                <!-- <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button"></button> -->
-              </div>
-            </div>
-          </div>
-        </td>
+              <td><label>Task#</label></td>
+              <td><label>Due Date</label></td>
           </tr>
+          <tr>
+            <td><label>Y-001</label></td>
+            <td><label>13/08/19</label></td>
+          </tr>
+          <div>
+          <tr>
+            <td>Title</td>
+            <td></td>
+          </tr>
+          <tr><td>title</td><td></td></tr>
+          </div>
+          <tr>
+            <td>Description</td>
+          </tr>
+          <tr><td>description</td></tr>
+          <tr>
+            <td>Priority</td>
+            <td>Assigned To</td>
+            <td>Status</td>
+          </tr>
+          <tr>
+            <td>priority</td>
+            <td>assigned</td>
+            <td>status</td>
+          </tr>
+          <tr><td>Comments</td></tr>
+          <tr><td><input class='rounded' type="text" placeholder="Document"></td></tr>
         </table>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-outline-dark" (click)="onFormSubmit()"></button>
+          <button type="submit" class="btn btn-outline-dark" (click)="onFormSubmit()">Save</button>
         </div>
       </form>
     </div>
     <!-- </div> -->
 
-  </ng-template>
+</ng-template>
