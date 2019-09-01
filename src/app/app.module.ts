@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +14,8 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     NgbModule,
     NgbPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

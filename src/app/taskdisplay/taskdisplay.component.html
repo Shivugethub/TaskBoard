@@ -1,125 +1,163 @@
 <div class='bg-secondary container-fluid'>
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <div class="card-body thumbnail">
-        <h5 class="card-title">To-Do</h5>
-        <div class='card' *ngFor="let item of taskArr" id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
+  <div class='bg-white'><h4>Task Boards</h4></div>
+  <div class="row">
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body" style='padding: 15px;'>
+          <h6 class="card-title">To-Do</h6>
+          <div  *ngFor="let item of taskArr; let i=index" >
+            <div class='card' *ngIf="item.status=='To-Do'" id='cardStyle'>
+              <p style='text-align: center' class="card-text">{{item.description}}</p>
+              <hr>
+              <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white">{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px;margin-left: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body" style='padding: 10px;'>
+          <h5 class="card-title">In Progress</h5>
+          <div  *ngFor="let item of taskArr; let i=index" >
+              <div class='card' *ngIf="item.status=='In Progress'" id='cardStyle'>
+                <p class="card-text ">{{item.description}}</p>
+                <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px;margin-left: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body"  style='padding: 10px;'>
+          <h5 class="card-title">Ready for QA</h5>
+          <div  *ngFor="let item of taskArr; let i=index">
+              <div class='card' *ngIf="item.status=='QA Progress'" id='cardStyle'>
+                <p class="card-text ">{{item.description}}</p>
+                <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px;margin-left: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body"  style='padding: 10px;'>
+          <h5 class="card-title">Development</h5>
+          <div  *ngFor="let item of taskArr; let i=index" >
+              <div class='card' *ngIf="item.status=='Development Completed'" id='cardStyle'>
+                <p class="card-text ">{{item.description}}</p>
+                <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px;margin-left: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body" style='padding: 10px;'>
+          <h5 class="card-title">System Testing Start</h5>
+          <div *ngFor="let item of taskArr; let i=index" >
+              <div  class='card' *ngIf="item.status=='System Testing Started'" id='cardStyle'>
+                <p class="card-text ">{{item.description}}</p>
+                <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col bg-white" style='padding: 6px;border-radius: 10px;margin-left: 10px'>
+      <div class="card" style='background-color: rgba(183, 192, 182, 0.726)'>
+        <div class="card-body" style='padding: 10px;'>
+          <h5 class="card-title">System Testing Complete</h5>
+          <div  *ngFor="let item of taskArr; let i=index" >
+              <div class='card' *ngIf="item.status=='System Testing Completed'" id='cardStyle'>
+                <p class="card-text ">{{item.description}}</p>
+                <p class='dueDate'><label class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</label><label class="btn btn-danger btn-sm-2 text-white" id='labelPriority'>{{item.priority}}</label><a (click)="editPopup(content,i)" class="btn btn-primary text-white" role="button" id='btnEdit'>Edit</a></p>
+              </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">In Progress</h5>
-        <div class='card' id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Ready for QA</h5>
-        <div class='card' id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <div class='card' id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">System Testing</h5>
-        <div class='card' id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">System Testing Complete</h5>
-        <div class='card' id='toDo'>
-          <p class="card-text ">{{item.description}}</p>
-          <p><a class="btn btn-primary btn-sm-2 text-white" id='dueDate'>{{item.dueDate}}</a> |<a class="btn btn-danger btn-sm-2 text-white">{{item.priority}}</a> |<a (click)="editPopup(content)" class="btn btn-primary text-white" role="button">Edit</a></p>
-          </div>
-      </div>
-    </div>
-  </div> -->
 </div>
-</div>
-
-
-
 <ng-template #content let-modal>
-    <!-- <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title" >Task</h4>
-      <button type="button" class="close bg bg-danger" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">Close</span>
-      </button>
-    </div> -->
-    <div class="modal-body">
-        <!-- <div class='col-6'> -->
-      <form>
-        <table class='table table-borderless'>
-          <tr>
-              <td><label>Task#</label></td>
-              <td><label>Due Date</label></td>
-          </tr>
-          <tr>
-            <td><label>Y-001</label></td>
-            <td><label>13/08/19</label></td>
-          </tr>
-          <div>
-          <tr>
-            <td>Title</td>
-            <td></td>
-          </tr>
-          <tr><td>title</td><td></td></tr>
+  <div class="modal-body">
+    <!-- <div class='col-6'> -->
+    <form #f="ngForm" (ngSubmit)="onFormSubmit()">
+      <table class='table table-borderless'>
+        <tr>
+          <td><label>Task#</label></td>
+          <td><label>Due Date</label></td>
+          <td><label>Assigned Date</label></td>
+        </tr>
+        <tr>
+          <td class="text-secondary"><label name="taskId" [(ngModel)]="taskId">{{taskId}}</label></td>
+          <td class="text-warning"><label name="dueDate" [(ngModel)]="dueDate">{{dueDate}}</label></td>
+          <td class="text-primary"><label name="assignedDate" [(ngModel)]="assignedDate">{{assignedDate}}</label></td>
+        </tr>
+      </table>
+      <div class='container'>
+        <div class="form-group">
+          <label for="designation">Title</label>
+          <div class="input-group">
+            <input id="designation" class="form-control col-6" [(ngModel)]="title" placeholder="Title" name="title" required>
+            <div class="input-group-append">
+            </div>
           </div>
-          <tr>
-            <td>Description</td>
-          </tr>
-          <tr><td>description</td></tr>
-          <tr>
-            <td>Priority</td>
-            <td>Assigned To</td>
-            <td>Status</td>
-          </tr>
-          <tr>
-            <td>priority</td>
-            <td>assigned</td>
-            <td>status</td>
-          </tr>
-          <tr><td>Comments</td></tr>
-          <tr><td><input class='rounded' type="text" placeholder="Document"></td></tr>
-        </table>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-outline-dark" (click)="onFormSubmit()">Save</button>
         </div>
-      </form>
-    </div>
-    <!-- </div> -->
-
+        <div class="form-group">
+          <label for="designation">Description</label>
+          <div class="input-group">
+            <input id="designation" class="form-control col-6" [(ngModel)]="description" placeholder="Description" name="description" required>
+            <div class="input-group-append">
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="form-group col-4">
+            <label for="designation">Priority</label>
+            <div class="input-group">
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="priority" [(ngModel)]="priority">
+                <option *ngFor="let item of priorityArr" [value]="item">{{item}}</option>
+              </select>
+              <div class="input-group-append">
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-4">
+            <label for="designation">Status</label>
+            <div class="input-group">
+              <select class="custom-select mr-sm-2" name="status" #name="ngModel" [(ngModel)]="status">
+                <option *ngFor="let arrKey of statusArr" [value]="arrKey.status1">{{arrKey.status1}}</option>
+              </select>
+              <div class="input-group-append">
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-4">
+            <label for="designation">Assigned To</label>
+            <div class="input-group">
+              <input id="designation" class="form-control col-6" placeholder="Priority" name="assignedTo" required [(ngModel)]="assignedTo">
+              <div class="input-group-append">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="designation">Comments</label>
+          <div class="input-group">
+            <input id="designation" class="form-control col-6" [(ngModel)]="comments" placeholder="Comments" name="comments" required>
+            <div class="input-group-append">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-outline-dark">Save</button>
+      </div>
+    </form>
+  </div>
+  <!-- </div> -->
 </ng-template>

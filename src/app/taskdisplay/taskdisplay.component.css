@@ -1,0 +1,35 @@
+
+
+#cardStyle {
+  border-style: outset;
+  border-color:beige;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.dueDate label,a{
+  margin-left: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 6px;
+}
+
+table{
+  border-spacing: 8px 4px;
+}
+
+#labelPriority {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+#btnEdit {
+  margin-bottom: 8px;
+  margin-left: 0px
+}
+
+/* style for small devices */
+/* @media only screen and (max-width:600px) { */
+  /* CSS style */
+
+/* } */
